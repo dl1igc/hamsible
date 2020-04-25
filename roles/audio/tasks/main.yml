@@ -1,0 +1,14 @@
+---
+- name: install ham packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - pulseaudio
+    - pavucontrol
+  become: yes
+
+# Set audio output to audio jack
+- name: install ham packages
+  become: yes
+  shell: amixer cset numid=3 1

@@ -26,3 +26,28 @@
 - name: set i3 as wm
   ini_file: dest=/etc/lightdm/lightdm.conf section=Seat:* option=user-session value=i3 backup=yes
   become: yes
+
+# include an i3 configuration
+- name: temlpate an i3 configuration
+  template:
+    src: config.j2
+    dest: ~/.config/i3/config
+
+#Disable oversan (probably many will not want/need this. Variable?)
+# https://dev.to/nabbisen/raspbian-enlarge-screen-boundaries-via-overscan-settings-2ef
+- name: Disable oversan 
+  become: yes
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^[\#]*disable_overscan='
+    line: disable_overscan=1
+
+# Don't sleep the screen
+- name: Disable screen sleep
+  become: yes
+  ini_file: dest=/etc/lightdm/lightdm.conf section=SetDefaults option=xserver-command value="X -s 0 dpms" backup=yes
+  become: yes
+
+- name: Reboot system if required
+  command: shutdown -r now 'Rebooting to complete system upgrade'
+            removes=/var/run/reboot-required

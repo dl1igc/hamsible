@@ -4,7 +4,5 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - pulseaudio
-    - pavucontrol
     - gqrx-sdr
   become: yes

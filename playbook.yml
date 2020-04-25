@@ -6,6 +6,7 @@
 
 - name: Default "pi" roles for ham radio
   hosts: all
-  become: yes
   roles:
      - i3
+     - panadapter
+     - control
