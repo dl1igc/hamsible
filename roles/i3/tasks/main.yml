@@ -1,0 +1,28 @@
+---
+- name: update the apt package index i.e. apt-get update
+  apt: update_cache=yes
+  become: yes
+
+- name: upgrade system packages i.e. apt-get upgrade
+  apt: upgrade=yes
+  become: yes
+
+- name: install i3 packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - i3 
+    - dmenu 
+    - suckless-tools
+  become: yes
+
+- name: set i3 as wm
+  alternatives:
+    name: x-window-manager
+    path: /usr/bin/i3
+  become: yes
+
+- name: set i3 as wm
+  ini_file: dest=/etc/lightdm/lightdm.conf section=Seat:* option=user-session value=i3 backup=yes
+  become: yes

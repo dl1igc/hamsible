@@ -1,0 +1,11 @@
+---
+- name: install ham packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - pulseaudio
+    - pavucontrol
+    - flrig
+    - fldigi
+  become: yes

@@ -1,0 +1,10 @@
+- name: Set the host name
+  become: yes
+  hostname:
+    name: "{{ pi_hostname }}"
+
+- name: Set a new password for the default "pi" account
+  become: yes
+  user:
+    name: "pi"
+    password: "{{ pi_password }}"

@@ -1,0 +1,8 @@
+---
+- name: install ham packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - qtel
+  become: yes

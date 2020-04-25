@@ -1,0 +1,11 @@
+---
+
+# - hosts: all
+#   roles:
+#   - role: common
+
+- name: Default "pi" roles for ham radio
+  hosts: all
+  become: yes
+  roles:
+     - i3
