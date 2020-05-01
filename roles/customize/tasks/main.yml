@@ -11,4 +11,11 @@
     name: "pi"
     password: "{{ pi_password }}"
 
+- name: install dns resolution packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+     - libnss-mdns
+
 

@@ -1,5 +1,5 @@
 ---
-- name: install ham packages
+- name: install audio packages
   apt:
     name: "{{ packages }}"
   vars:
@@ -8,6 +8,12 @@
     - pavucontrol
     - pulseaudio-equalizer
   become: yes
+
+- name: Create a directory if it does not exist
+  file:
+    path: ~/bin/
+    state: directory
+    mode: '0755'
 
 - name: Template a startup for audio
   template:

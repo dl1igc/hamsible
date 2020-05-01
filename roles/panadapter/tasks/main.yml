@@ -1,5 +1,5 @@
 ---
-- name: install ham packages
+- name: install panadapter packages
   apt:
     name: "{{ packages }}"
   vars:

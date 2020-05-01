@@ -12,3 +12,5 @@
      - panadapter
      - trx-control
      - wspr
+  vars_files:
+    - external_vars.yml
