@@ -1,0 +1,11 @@
+---
+- name: install raspberry remote control packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - realvnc-vnc-server realvnc-vnc-viewer
+    - barrier
+  become: yes
+
+sudo raspi-config nonint do_vnc 0

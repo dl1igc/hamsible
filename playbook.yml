@@ -8,5 +8,7 @@
   hosts: all
   roles:
      - i3
+     - remote
      - panadapter
-     - control
+     - trx-control
+     - wspr

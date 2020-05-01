@@ -6,9 +6,11 @@
     packages:
     - pulseaudio
     - pavucontrol
+    - pulseaudio-equalizer
   become: yes
 
-# Set audio output to audio jack
-- name: install ham packages
-  become: yes
-  shell: amixer cset numid=3 1
+- name: Template a startup for audio
+  template:
+    src: setup_pulseaudio.sh
+    dest: ~/bin/setup_pulseaudio.sh
+    mode: '0700'

@@ -29,3 +29,7 @@ pactl load-module module-loopback source=$TRX_SPKR_NR sink=$HEADSET_SPKR_NR
 pactl load-module module-null-sink sink_name="HEADSET_TO_TRX"
 pacmd update-sink-proplist HEADSET_TO_TRX device.description="\"HEADSET TO TRX\""
 pactl load-module module-loopback source=$HEADSET_MIC_NR sink=$TRX_MIC_NR
+
+# To use the equalizer
+pactl load-module module-equalizer-sink
+pactl load-module module-dbus-protocol
