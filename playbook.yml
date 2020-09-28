@@ -4,7 +4,7 @@
 #   roles:
 #   - role: common
 
-- name: Default "pi" roles for ham radio
+- name: Default roles for ham radio
   hosts: all
   roles:
      - i3

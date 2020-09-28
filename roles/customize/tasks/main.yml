@@ -17,5 +17,8 @@
   vars:
     packages:
      - libnss-mdns
+     - ssh
+
+
 
 

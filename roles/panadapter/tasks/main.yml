@@ -4,5 +4,12 @@
     name: "{{ packages }}"
   vars:
     packages:
+    - gnuradio
     - gqrx-sdr
   become: yes
+
+- name: optimize gqrx
+  command: volk_profile
+
+  #TODO: Setup follow flrig
+  #TODO: Start with rtl-sdr direct sample config

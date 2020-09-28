@@ -10,23 +10,23 @@
   become: yes
 
 
-- apt_repository:
-    repo: "ppa:dansmith/chirp-snapshots"
-    state: present
-  become: yes
+# - apt_repository:
+#     repo: "ppa:dansmith/chirp-snapshots"
+#     state: present
+#   become: yes
 
-- name: update the apt package index i.e. apt-get update
-  apt: update_cache=yes
-  become: yes
+# - name: update the apt package index i.e. apt-get update
+#   apt: update_cache=yes
+#   become: yes
 
-- name: upgrade system packages i.e. apt-get upgrade
-  apt: upgrade=yes
-  become: yes
+# - name: upgrade system packages i.e. apt-get upgrade
+#   apt: upgrade=yes
+#   become: yes
 
-- name: install chirp packages
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - chirp-daily
-  become: yes
+# - name: install chirp packages
+#   apt:
+#     name: "{{ packages }}"
+#   vars:
+#     packages:
+#     - chirp-daily
+#   become: yes
